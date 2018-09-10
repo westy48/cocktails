@@ -8,7 +8,10 @@ def show_menu():
 def switchoff():
     confirm = yesno("Shutdown", "Do you really want to shutdown?")
     if confirm == True:
+# CAUTION: This line shuts your computer down.
         os.system('sudo shutdown -h now')
+# If you want to replace the shutdown button with "Quit app" use the following line instead of line 12
+#       app.destroy()
     else:
         delicious.show
 
@@ -124,5 +127,6 @@ off.width = 15
 delicious = Box(app, visible = False)
 recipe = PushButton(delicious, command = show_menu, text = '')
 # This line makes the app run full screen, without a title bar
+# Remove it if you want to run this in a window rather than as a kiosk
 app.tk.attributes("-fullscreen",True)
 app.display()
